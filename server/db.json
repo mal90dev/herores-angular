@@ -1,0 +1,796 @@
+{
+  "heroes": [
+    {
+      "name": "A-Bombaa",
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "203"
+        ],
+        "weight": [
+          "441"
+        ]
+      },
+      "powerstats": {
+        "intelligence": 402,
+        "strength": 100,
+        "speed": 17,
+        "durability": 80,
+        "power": 24,
+        "combat": 64
+      },
+      "biography": {
+        "fullName": "Richard Milhouse Jones",
+        "aliases": [
+          "Rick Jones"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/1-a-bomb.jpg",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Abe Sapien",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 28,
+        "speed": 35,
+        "durability": 65,
+        "power": 100,
+        "combat": 85
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Icthyo Sapien",
+        "height": [
+          "191"
+        ],
+        "weight": [
+          "65"
+        ]
+      },
+      "biography": {
+        "fullName": "Abraham Sapien",
+        "aliases": [
+          "Langdon Everett Caul",
+          "Abraham Sapien",
+          "Langdon Caul"
+        ],
+        "publisher": "Dark Horse Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/2-abe-sapien.jpg"
+    },
+    {
+      "name": "Abin Sur",
+      "appearance": {
+        "gender": "Male",
+        "race": "Ungaran",
+        "height": [
+          "185"
+        ],
+        "weight": [
+          "90"
+        ]
+      },
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 90,
+        "speed": 53,
+        "durability": 64,
+        "power": 99,
+        "combat": 65
+      },
+      "biography": {
+        "fullName": "",
+        "aliases": [
+          "Lagzia"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/3-abin-sur.jpg",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Abomination",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 80,
+        "speed": 53,
+        "durability": 90,
+        "power": 62,
+        "combat": 95
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human / Radiation",
+        "height": [
+          "203"
+        ],
+        "weight": [
+          "441"
+        ]
+      },
+      "biography": {
+        "fullName": "Emil Blonsky",
+        "aliases": [
+          "Agent R-7",
+          "Ravager of Worlds"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/4-abomination.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Abraxas",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 63,
+        "speed": 83,
+        "durability": 100,
+        "power": 100,
+        "combat": 55
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Cosmic Entity",
+        "height": [
+          "0"
+        ],
+        "weight": [
+          "0"
+        ]
+      },
+      "biography": {
+        "fullName": "Abraxas",
+        "alterEgos": "No alter egos found.",
+        "aliases": [
+          "-"
+        ],
+        "placeOfBirth": "Within Eternity",
+        "firstAppearance": "Fantastic Four Annual #2001",
+        "publisher": "Marvel Comics",
+        "alignment": "bad"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/5-abraxas.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Absorbing Man",
+      "powerstats": {
+        "intelligence": 38,
+        "strength": 80,
+        "speed": 25,
+        "durability": 100,
+        "power": 98,
+        "combat": 64
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "193"
+        ],
+        "weight": [
+          "122"
+        ]
+      },
+      "biography": {
+        "fullName": "Carl Creel",
+        "aliases": [
+          "Greithoth",
+          "\"Crusher\" Creel",
+          "Rocky Davis",
+          "Dynamite Davis",
+          "Lightningbolt",
+          "Prisoner #24957"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/6-absorbing-man.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Adam Monroe",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 10,
+        "speed": 12,
+        "durability": 100,
+        "power": 100,
+        "combat": 64
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "0"
+        ],
+        "weight": [
+          "0"
+        ]
+      },
+      "biography": {
+        "fullName": "",
+        "aliases": [
+          "Takezo Kensei",
+          "Richard Sanders"
+        ],
+        "publisher": "NBC - Heroes"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/7-adam-monroe.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Adam Strange",
+      "powerstats": {
+        "intelligence": 69,
+        "strength": 10,
+        "speed": 33,
+        "durability": 40,
+        "power": 37,
+        "combat": 50
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "185"
+        ],
+        "weight": [
+          "88"
+        ]
+      },
+      "biography": {
+        "fullName": "Adam Strange",
+        "aliases": [
+          "Warrior of Two Worlds",
+          "Savior of Rann"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/8-adam-strange.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Agent Bob",
+      "powerstats": {
+        "intelligence": 10,
+        "strength": 8,
+        "speed": 13,
+        "durability": 5,
+        "power": 5,
+        "combat": 20
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "178"
+        ],
+        "weight": [
+          "81"
+        ]
+      },
+      "biography": {
+        "fullName": "Bob",
+        "aliases": [
+          "Bob",
+          "agent of Hydra",
+          "Bob",
+          "agent of A.I.M"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/10-agent-bob.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Agent Zero",
+      "powerstats": {
+        "intelligence": 75,
+        "strength": 28,
+        "speed": 38,
+        "durability": 80,
+        "power": 72,
+        "combat": 95
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "191"
+        ],
+        "weight": [
+          "104"
+        ]
+      },
+      "biography": {
+        "fullName": "Christoph Nord",
+        "aliases": [
+          "Maverick"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/11-agent-zero.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Air-Walker",
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 85,
+        "speed": 100,
+        "durability": 85,
+        "power": 100,
+        "combat": 40
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "188"
+        ],
+        "weight": [
+          "108"
+        ]
+      },
+      "biography": {
+        "fullName": "Gabriel Lan",
+        "aliases": [
+          "-"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/12-air-walker.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Ajax",
+      "powerstats": {
+        "intelligence": 56,
+        "strength": 48,
+        "speed": 35,
+        "durability": 80,
+        "power": 34,
+        "combat": 55
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Cyborg",
+        "height": [
+          "193"
+        ],
+        "weight": [
+          "90"
+        ]
+      },
+      "biography": {
+        "fullName": "Francis",
+        "aliases": [
+          "\"Frankie\"",
+          "the A-Man",
+          "the Attending"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/13-ajax.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Alan Scott",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 80,
+        "speed": 23,
+        "durability": 90,
+        "power": 100,
+        "combat": 32
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "180"
+        ],
+        "weight": [
+          "90"
+        ]
+      },
+      "biography": {
+        "fullName": "Alan Ladd Wellington Scott",
+        "aliases": [
+          "Green Lantern",
+          "White King",
+          "Sentinal"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/14-alan-scott.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Alex Mercer",
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 80,
+        "speed": 42,
+        "durability": 90,
+        "power": 100,
+        "combat": 50
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "0"
+        ],
+        "weight": [
+          "0"
+        ]
+      },
+      "biography": {
+        "fullName": "Alexander J. Mercer",
+        "aliases": [
+          "Prototype",
+          "Zues",
+          "Blacklight"
+        ],
+        "publisher": "Wildstorm"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/15-alex-mercer.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Alfred Pennyworth",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 10,
+        "speed": 17,
+        "durability": 10,
+        "power": 7,
+        "combat": 55
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "178"
+        ],
+        "weight": [
+          "72"
+        ]
+      },
+      "biography": {
+        "fullName": "Alfred Thaddeus Crane Pennyworth",
+        "aliases": [
+          "Alfred Beagle"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/17-alfred-pennyworth.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Alien",
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 28,
+        "speed": 42,
+        "durability": 90,
+        "power": 57,
+        "combat": 60
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Xenomorph XX121",
+        "height": [
+          "244"
+        ],
+        "weight": [
+          "169"
+        ]
+      },
+      "biography": {
+        "fullName": "Xenomorph",
+        "aliases": [
+          "-"
+        ],
+        "publisher": "Dark Horse Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/18-alien.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Amazo",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 100,
+        "speed": 83,
+        "durability": 100,
+        "power": 100,
+        "combat": 100
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Android",
+        "height": [
+          "257"
+        ],
+        "weight": [
+          "173"
+        ]
+      },
+      "biography": {
+        "fullName": "",
+        "aliases": [
+          "Professor Ivos Amazing Android",
+          "Timazo",
+          "Humazo",
+          "Hourmazo"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/20-amazo.jpg"
+    },
+    {
+      "name": "Angel",
+      "appearance": {
+        "gender": "Male",
+        "race": "Vampire",
+        "height": [
+          "0"
+        ],
+        "weight": [
+          "0"
+        ]
+      },
+      "powerstats": {
+        "intelligence": 76,
+        "strength": 30,
+        "speed": 58,
+        "durability": 90,
+        "power": 100,
+        "combat": 75
+      },
+      "biography": {
+        "fullName": "Liam",
+        "aliases": [
+          "Angelus",
+          "Twilight"
+        ],
+        "publisher": "Dark Horse Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/23-angel.jpg",
+      "id": 23
+    },
+    {
+      "id": 24,
+      "name": "Angel",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 13,
+        "speed": 46,
+        "durability": 64,
+        "power": 28,
+        "combat": 42
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "183"
+        ],
+        "weight": [
+          "68"
+        ]
+      },
+      "biography": {
+        "fullName": "Warren Kenneth Worthington III",
+        "aliases": [
+          "Formerly Death",
+          "Dark Angel",
+          "Angel",
+          "Avenging Angel",
+          "Archangel"
+        ],
+        "publisher": "Archangel"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/24-angel.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Angel Dust",
+      "powerstats": {
+        "intelligence": 38,
+        "strength": 55,
+        "speed": 23,
+        "durability": 42,
+        "power": 17,
+        "combat": 30
+      },
+      "appearance": {
+        "gender": "Female",
+        "race": "Mutant",
+        "height": [
+          "165"
+        ],
+        "weight": [
+          "57"
+        ]
+      },
+      "biography": {
+        "fullName": "Christina",
+        "alterEgos": "No alter egos found.",
+        "aliases": [
+          "Angel",
+          "Dusty"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/25-angel-dust.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Angel Salvadore",
+      "powerstats": {
+        "intelligence": 38,
+        "strength": 10,
+        "speed": 28,
+        "durability": 28,
+        "power": 56,
+        "combat": 60
+      },
+      "appearance": {
+        "gender": "Female",
+        "race": null,
+        "height": [
+          "163"
+        ],
+        "weight": [
+          "54"
+        ]
+      },
+      "biography": {
+        "fullName": "Angel Salvadore Bohusk",
+        "aliases": [
+          "Tempest"
+        ],
+        "publisher": "Tempest"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/26-angel-salvadore.jpg"
+    },
+    {
+      "id": 28,
+      "name": "Animal Man",
+      "powerstats": {
+        "intelligence": 56,
+        "strength": 48,
+        "speed": 47,
+        "durability": 85,
+        "power": 73,
+        "combat": 80
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "183"
+        ],
+        "weight": [
+          "83"
+        ]
+      },
+      "biography": {
+        "fullName": "Bernhard Baker",
+        "aliases": [
+          "The Human Zoo; A-Man; The Man with Animal Powers"
+        ],
+        "publisher": "DC Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/28-animal-man.jpg"
+    },
+    {
+      "id": 29,
+      "name": "Annihilus",
+      "powerstats": {
+        "intelligence": 75,
+        "strength": 80,
+        "speed": 47,
+        "durability": 56,
+        "power": 59,
+        "combat": 64
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": null,
+        "height": [
+          "180"
+        ],
+        "weight": [
+          "90"
+        ]
+      },
+      "biography": {
+        "fullName": "Annihilus",
+        "alterEgos": "No alter egos found.",
+        "aliases": [
+          "The Living Death That Walks",
+          "Lord of the Negative Zone"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/29-annihilus.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Ant-Man",
+      "powerstats": {
+        "intelligence": 100,
+        "strength": 18,
+        "speed": 23,
+        "durability": 28,
+        "power": 32,
+        "combat": 32
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "211"
+        ],
+        "weight": [
+          "122"
+        ]
+      },
+      "biography": {
+        "fullName": "Hank Pym",
+        "aliases": [
+          "Hank Pym",
+          "Doctor Pym",
+          "Ant-Man",
+          "Goliath",
+          "Yellowjacket",
+          "Wasp",
+          "Earth's Scientist Supreme"
+        ],
+        "publisher": "Giant-Man"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/30-ant-man.jpg"
+    },
+    {
+      "id": 31,
+      "name": "Ant-Man II",
+      "powerstats": {
+        "intelligence": 75,
+        "strength": 18,
+        "speed": 17,
+        "durability": 40,
+        "power": 53,
+        "combat": 30
+      },
+      "appearance": {
+        "gender": "Male",
+        "race": "Human",
+        "height": [
+          "183"
+        ],
+        "weight": [
+          "86"
+        ]
+      },
+      "biography": {
+        "fullName": "Scott Lang",
+        "aliases": [
+          "Myrmidon",
+          "Scott Edward Harris Lang"
+        ],
+        "publisher": "Marvel Comics"
+      },
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/31-ant-man-ii.jpg"
+    }
+  ]
+}

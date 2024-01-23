@@ -1,0 +1,18 @@
+.create-form {
+  padding-top: 20px;
+  .create-form__form {
+    padding-top: 20px;
+    .create-form__img {
+      width: 15%;
+      height: 15%;
+    }
+    .create-form__span {
+      display: flex;
+      margin: 25px 10px 0px 0px;
+    }
+  }
+  .create-form__divider {
+    padding-bottom: 20px;
+    width: 90%;
+  }
+}

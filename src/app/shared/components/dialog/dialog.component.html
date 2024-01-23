@@ -1,0 +1,10 @@
+<div class="dialog">
+  <h1 mat-dialog-title>{{data?.title}}</h1>
+  <div mat-dialog-content>
+    {{data?.textContent}}
+  </div>
+  <div mat-dialog-actions class="dialog__buttons d-flex justify-content-center">
+    <button mat-raised-button (click)="onCancel()">{{data?.buttonTextCancel}}</button>
+    <button mat-raised-button color="primary" (click)="onAccept()">{{data?.buttonTextOk}}</button>
+  </div>
+</div>

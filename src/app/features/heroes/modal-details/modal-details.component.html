@@ -1,0 +1,40 @@
+<div class="container modal-details">
+  <div class="modal-details__img">
+    <div class="text-center">
+      <img [src]="hero.image" class="" alt="hero image">
+    </div>
+  </div>
+  <div class="text-center modal-details__name">
+    <span>{{ hero.name }},</span>
+    <span class="fst-italic"> "{{ hero.biography.aliases }}"</span>
+  </div>
+  <div class="row modal-details__biography">
+    <h1 class="display-6">Biography</h1>
+      <div class="col-12 modal-details__biography--item">
+        <strong>Full name:</strong> {{ hero.biography.fullName }}
+      </div>
+      <div class="col-12 modal-details__biography--item">
+        <strong>Publisher:</strong> {{ hero.biography.publisher }}
+    </div>
+  </div>
+  <div class="row modal-details__app-pow">
+    <div class="col-6">
+      <h1 class="display-6">Appearance</h1>
+      <ng-container *ngFor="let item of hero.appearance |keyvalue">
+        <div class="col-12 modal-details__app-pow--item">
+          <strong>{{item.key}}:</strong> {{item.value}}
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-6">
+      <div class="modal-details__powerstats">
+        <h1 class="display-6">Powerstats</h1>
+        <ng-container *ngFor="let item of hero.powerstats |keyvalue">
+          <div class="col-12 modal-details__app-pow--item">
+            <strong>{{item.key}}:</strong> {{item.value}}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

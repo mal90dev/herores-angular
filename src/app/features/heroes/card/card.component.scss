@@ -1,0 +1,18 @@
+.card {
+  margin: 0px 15px 15px 0px;
+  .card__button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .card__content {
+    text-align: center;
+    overflow: hidden;
+    
+    .card__img {
+      border-radius: 10px;
+      max-width: 70%;
+      max-height: 90%;
+    }
+  }
+}

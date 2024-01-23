@@ -1,0 +1,9 @@
+<app-header />
+<app-search (searchText)="handleSearchChange($event)"/>
+<button mat-raised-button color="primary" routerLink="/heroes/create">Add Hero</button>
+<app-grid [heroes]="heroes | async" (eventRemove)="handleEventRemove()"/>
+<app-paginator #paginator
+  (eventPaginator)="handleEventPaginator($event)" 
+  [totalHeroes]="(totalHeroes | async) || 0"
+/>
+<app-spinner [showSpinner]="showSpinner"/>

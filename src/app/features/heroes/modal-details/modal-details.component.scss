@@ -1,0 +1,25 @@
+.modal-details {
+  .modal-details__img {
+    img {
+      width: 25%;
+      margin-top: 20px;
+      border: solid 2px #673ab7;
+      border-radius: 5px;
+    }
+  }
+  .modal-details__name {
+    margin-top: 10px;
+  }
+  .modal-details__biography {
+    padding: 10px 0px 10px 20px;
+    .modal-details__biography--item {
+      padding: 0px 0px 10px 20px;
+    }
+  }
+  .modal-details__app-pow {
+    padding: 0px 0px 10px 20px;
+    .modal-details__app-pow--item {
+      padding: 0px 0px 10px 10px;
+    }
+  }
+}
