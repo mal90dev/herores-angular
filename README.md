@@ -1,27 +1,19 @@
-# Heroes
+# Heroes App
+Es una aplicación de mantenimiento de super héroes. Muestra un listado de ellos con todos sus detalles. Se pueden añadir nuevos, editar los ya existentes y eliminarlos.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+## Tecnologías
 
-## Development server
+Este proyecto está desarrollado en la versión LTS de Angular 16.2.12 y 4.9.4 de typescript.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Servidor desarrollo
 
-## Code scaffolding
+Para ejecutar el servidor hay que lanzar el comando `ng serve` o el script `npm run start`, esto lanzará un servidor de desarrollo en http://localhost:4200/.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para obtener los datos se ha hecho uso de la librería *json-server* que simula un API REST, este contiene todos los datos de los heroes. Para lanzar este servidor hay que lanzar el script `npm run json-server`. Esto ejecuta un servidor en http://localhost:3000 necesario para la obtención de datos de la aplicación.
 
-## Build
+Es necesario tener ambos servidores en marcha para el correcto funcionamiento de la aplicación.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Test unitarios
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para la ejecución de los test se ha añadido el comando `npm run test-coverage`, este además de ejecutar todas las pruebas unitarias definidas en la aplicación, genera en el directorio *coverage/heroes* unos ficheros mediante los cuales podemos ver el estado de cobertura que hay en la aplicación. El fichero *index.html* muestra un estado detallado de ello.
