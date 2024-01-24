@@ -24,7 +24,7 @@ export class PaginatorComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes?.totalHeroes?.currentValue) {
-      this.length = this.totalHeroes;
+      this.length = changes.totalHeroes.currentValue; // mirar si está bien
     }
   }
 

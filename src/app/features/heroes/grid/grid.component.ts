@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Hero } from '../shared/models/hero.model';
 import { HeroesService } from '../shared/services/heroes.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -10,16 +10,13 @@ import { ModalDetailsComponent } from '../modal-details/modal-details.component'
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss']
 })
-export class GridComponent implements OnInit {
+export class GridComponent {
 
   @Input() heroes: Hero[] | null = [];
   @Output() eventRemove = new EventEmitter<void>(); 
 
   constructor(private readonly heroService: HeroesService,
     private readonly dialog: MatDialog) {
-  }
-
-  ngOnInit(): void {
   }
 
   handleRemove(id: number|undefined): void {

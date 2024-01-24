@@ -42,7 +42,7 @@ export class GridHeroViewComponent {
   handleEventPaginator(event: PageEvent): void {
     event.pageIndex = event.pageIndex + 1;
     this.totalHeroes.next(this.heroService.totalHeroes);
-    this.getHeroes(event)
+    this.getHeroes(event);
   }
 
   handleSearchChange(value: string|null): void {

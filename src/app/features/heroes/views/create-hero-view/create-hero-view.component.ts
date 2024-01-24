@@ -107,7 +107,7 @@ export class CreateHeroViewComponent implements OnInit {
   saveHero(): void {
     this.heroService.createHero(this.createObjHero()).subscribe({
       next: (hero: Hero) => {
-        console.log('Hero created: ', hero);
+        console.log('Hero created: ', hero); // TODO
         this.openSnackBar('Created Hero!', 'save');
       }, complete: () => {
         this.heroService.totalHeroes++;

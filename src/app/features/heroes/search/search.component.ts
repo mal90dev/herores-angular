@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
     this.searchForm = new FormGroup({
       search: new FormControl('')
     });
-  }
+  } 
 
   onSearchChange(): void {
     this.searchForm.get('search')?.valueChanges.subscribe({
