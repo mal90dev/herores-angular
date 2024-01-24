@@ -1,10 +1,10 @@
 .snack-bar {
   display: flex;
   .snack-bar__p {
+    -ms-transform: translateY(-50%);
     margin: 0;
     position: absolute;
     top: 50%;
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
   .snack-bar__span {

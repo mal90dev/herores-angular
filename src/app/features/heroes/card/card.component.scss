@@ -2,17 +2,22 @@
   margin: 0px 15px 15px 0px;
   .card__button {
     position: absolute;
-    top: 5px;
     right: 10px;
+    top: 5px;
   }
   .card__content {
-    text-align: center;
     overflow: hidden;
-    
+    padding-top: 10px;
+    text-align: center;
     .card__img {
+      -webkit-transition: all 0.4s;
       border-radius: 10px;
-      max-width: 70%;
       max-height: 90%;
+      max-width: 70%;
+      transition: all 0.4s;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
