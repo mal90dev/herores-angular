@@ -22,6 +22,7 @@
       <h1 class="display-6">Appearance</h1>
       <ng-container *ngFor="let item of hero.appearance |keyvalue">
         <div class="col-12 modal-details__app-pow--item">
+          <i [class]="getIconAppearance(item.key)"></i>
           <strong>{{item.key}}:</strong> {{item.value}}
         </div>
       </ng-container>
@@ -31,6 +32,7 @@
         <h1 class="display-6">Powerstats</h1>
         <ng-container *ngFor="let item of hero.powerstats |keyvalue">
           <div class="col-12 modal-details__app-pow--item">
+            <i [class]="getIconPowerstats(item.key)"></i>
             <strong>{{item.key}}:</strong> {{item.value}}
           </div>
         </ng-container>

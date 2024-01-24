@@ -20,6 +20,16 @@
     padding: 0px 0px 10px 20px;
     .modal-details__app-pow--item {
       padding: 0px 0px 10px 10px;
+      i {
+        margin-right: 5px;
+      }
+    }
+    .modal-details__powerstats {
+      .modal-details__app-pow--item {
+        i {
+          margin-right: 5px;
+        }
+      }
     }
   }
 }
