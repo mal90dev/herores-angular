@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 
 describe('CardComponent', () => {
   let component: CardComponent;

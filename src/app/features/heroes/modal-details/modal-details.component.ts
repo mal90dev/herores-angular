@@ -1,8 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 import { IconsPowerStats } from '../shared/constants/IconsPowerStats';
 import { IconsAppearance } from '../shared/constants/IconsAppearance';
+import { DialogData } from '../shared/interfaces/dialogData.interface';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { IconsAppearance } from '../shared/constants/IconsAppearance';
 })
 export class ModalDetailsComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   get hero(): Hero {
     return this.data.hero;

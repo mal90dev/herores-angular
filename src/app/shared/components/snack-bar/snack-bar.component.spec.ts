@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SnackBarComponent } from './snack-bar.component';
-import { Hero } from 'src/app/features/heroes/shared/models/hero.model';
+import { Hero } from 'src/app/features/heroes/shared/interfaces/hero.interface';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 

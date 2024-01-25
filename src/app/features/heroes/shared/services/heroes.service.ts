@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Hero } from '../models/hero.model';
+import { Hero } from '../interfaces/hero.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 
@@ -47,8 +47,8 @@ export class HeroesService {
     return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
   }
 
-  deleteHero(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/heroes/${id}`);
+  deleteHero(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/heroes/${id}`);
   }
 
 

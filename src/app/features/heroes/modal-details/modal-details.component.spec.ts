@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalDetailsComponent } from './modal-details.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 
 describe('ModalDetailsComponent', () => {
   let component: ModalDetailsComponent;

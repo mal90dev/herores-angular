@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 import { HeroesService } from '../shared/services/heroes.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
@@ -41,7 +41,7 @@ export class GridComponent {
     }
   }
 
-  openDialog(): MatDialogRef<DialogComponent, any> {
+  openDialog(): MatDialogRef<DialogComponent> {
     return this.dialog.open(DialogComponent, {
       width: '300px',
       enterAnimationDuration: '1000',

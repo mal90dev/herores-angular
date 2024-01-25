@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { BehaviorSubject } from 'rxjs';
-import { Hero } from '../../shared/models/hero.model';
+import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { PaginatorComponent } from '../../paginator/paginator.component';
 import { LoadingService } from 'src/app/core/services/loading.service';

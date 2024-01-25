@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Hero } from '../../shared/models/hero.model';
+import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { HeroesService } from './heroes.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Hero } from '../models/hero.model';
+import { Hero } from '../interfaces/hero.interface';
 
 describe('HeroesService', () => {
   let service: HeroesService;

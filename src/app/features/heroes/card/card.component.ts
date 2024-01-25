@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 
 @Component({
   selector: 'app-card',

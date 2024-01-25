@@ -11,7 +11,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { HeroesService } from '../shared/services/heroes.service';
 import { Observable, of } from 'rxjs';
-import { Hero } from '../shared/models/hero.model';
+import { Hero } from '../shared/interfaces/hero.interface';
 
 class MockHeroesService {
   

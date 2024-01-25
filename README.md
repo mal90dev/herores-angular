@@ -23,3 +23,9 @@ Para la ejecución de los test se ha añadido el comando `npm run test-coverage`
 Para dockerizar la aplicación, en la raíz del directorio hay un fichero *dockerfile* que contiene todos los comandos necesarios para montar el contenedor. Para montar este, hay que lanzar el script `npm run docker`. Esto hace un *build* de la aplicación y la lanza en un servidor nginx, además también ejecuta un API REST mediante *json-server* para poder obtener los datos necesarios.
 
 Una vez montado el contenedor en la dirección http://localhost:8080/ tenemos la aplicación y en http://localhost:3000/ el API REST.
+
+## Lint
+
+Se ha añadido la librería de ESLint que es una herramienta de linting para ayuda a mantener un código limpio y consistente. Para comprobar el estado de la aplicación se lanza el script `npm run lint`. Esto genera un informe e indica los posibles errores que hay que corregir. 
+
+Esta herramienta contiene un fichero de configuración que es *.eslintrc.json* en el que puedes personalizarlo según tus necesidades.
