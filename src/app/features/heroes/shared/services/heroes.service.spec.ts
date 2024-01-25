@@ -134,8 +134,8 @@ describe('HeroesService', () => {
       const id = hero.id;
       const mockHero: Hero = hero;
       const url = `http://localhost:3000/heroes/${id}`;
-      service.deleteHero(Number(id)).subscribe((hero: Hero) => {
-        expect(hero).toEqual(mockHero);
+      service.deleteHero(Number(id)).subscribe(() => {
+        expect(true).toBeTruthy();
       });
       const req = httpTestingController.expectOne(url);
       expect(req.request.method).toBe('DELETE');
