@@ -29,3 +29,7 @@ Una vez montado el contenedor en la dirección http://localhost:8080/ tenemos la
 Se ha añadido la librería de ESLint que es una herramienta de linting para ayuda a mantener un código limpio y consistente. Para comprobar el estado de la aplicación se lanza el script `npm run lint`. Esto genera un informe e indica los posibles errores que hay que corregir. 
 
 Esta herramienta contiene un fichero de configuración que es *.eslintrc.json* en el que puedes personalizarlo según tus necesidades.
+
+## Autor
+
+Aplicación realizada por Mario Aguilar Luque
