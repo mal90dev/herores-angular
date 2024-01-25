@@ -5,10 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-coverage": "ng test --no-watch --code-coverage",
-    "json-server": "json-server --watch server/db.json"
+    "json-server": "json-server --watch server/db.json",
+    "docker": "docker build -t heroes-app-server . && docker run -d -p 8080:80 -p 3000:3000 heroes-app-server"
   },
   "private": true,
   "dependencies": {

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hero } from '../models/hero.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroesService {
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = environment.apiUrl;
   private _totalHeroes = 25;
   
   public get totalHeroes() {
