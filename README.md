@@ -17,3 +17,9 @@ Es necesario tener ambos servidores en marcha para el correcto funcionamiento de
 ## Test unitarios
 
 Para la ejecución de los test se ha añadido el comando `npm run test-coverage`, este además de ejecutar todas las pruebas unitarias definidas en la aplicación, genera en el directorio *coverage/heroes* unos ficheros mediante los cuales podemos ver el estado de cobertura que hay en la aplicación. El fichero *index.html* muestra un estado detallado de ello.
+
+## Docker
+
+Para dockerizar la aplicación, en la raíz del directorio hay un fichero *dockerfile* que contiene todos los comandos necesarios para montar el contenedor. Para montar este, hay que lanzar el script `npm run docker`. Esto hace un *build* de la aplicación y la lanza en un servidor nginx, además también ejecuta un API REST mediante *json-server* para poder obtener los datos necesarios.
+
+Una vez montado el contenedor en la dirección http://localhost:8080/ tenemos la aplicación y en http://localhost:3000/ el API REST.
