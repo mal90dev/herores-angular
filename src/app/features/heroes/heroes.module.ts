@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { GridComponent } from '../../shared/components/grid/grid.component';
-import { HeaderComponent } from '../../shared/components/header/header.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
 import { CardComponent } from '../../shared/components/card/card.component';
@@ -34,8 +33,7 @@ const materialModules = [
     PaginatorComponent,
     GridComponent,
     CardComponent,
-    SearchComponent,
-    HeaderComponent
+    SearchComponent
   ]
 })
 export class HeroesModule { }

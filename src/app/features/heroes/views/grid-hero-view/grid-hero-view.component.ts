@@ -1,10 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, signal } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { BehaviorSubject } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { PaginatorComponent } from '../../../../shared/components/paginator/paginator.component';
-import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
   selector: 'app-grid-hero-view',
@@ -18,14 +17,12 @@ export class GridHeroViewComponent {
   heroes: BehaviorSubject<Hero[]> = new BehaviorSubject<Hero[]>([]);
   totalHeroes: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   pageIndex!: number;
-  showSpinner = false;
+  showSpinner = signal(false);
 
-  constructor(private readonly heroService: HeroesService,
-    private readonly loading: LoadingService) {}
+  constructor(private readonly heroService: HeroesService) {}
 
   ngOnInit(): void {
     this.getHeroes();
-    this.getStatusSpinner();
   }
 
   getHeroes(event?: PageEvent): void {
@@ -61,14 +58,6 @@ export class GridHeroViewComponent {
   handleEventRemove(): void {
     this.getHeroes();
     this.paginator.pageIndex = 0;
-  }
-
-  getStatusSpinner(): void {
-    this.loading.loadingSub.subscribe({
-      next: (value: boolean) => {
-        this.showSpinner = value;
-      }
-    });
   }
 
 }

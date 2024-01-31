@@ -6,7 +6,6 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { LoadingService } from 'src/app/core/services/loading.service';
 
 class MockHeroesService {
   
@@ -59,19 +58,10 @@ class MockHeroesService {
   }
 }
 
-class MockLoadingService {
-  loadingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  
-  setLoading(value: boolean): void {
-    this.loadingSub.next(value);
-  }
-}
-
 describe('GridHeroViewComponent', () => {
   let component: GridHeroViewComponent;
   let fixture: ComponentFixture<GridHeroViewComponent>;
   let mockHeroesService: MockHeroesService;
-  let mockLoadingService: MockLoadingService;
   const hero: Hero = {
     name: "A-Bombaa",
     appearance: {
@@ -105,12 +95,10 @@ describe('GridHeroViewComponent', () => {
 
   beforeEach(async () => {
     mockHeroesService = new MockHeroesService();
-    mockLoadingService = new MockLoadingService();
     await TestBed.configureTestingModule({
       declarations: [ GridHeroViewComponent ],
       providers: [
-        { provide: HeroesService, useValue: mockHeroesService },
-        { provide: LoadingService, useValue: mockLoadingService }
+        { provide: HeroesService, useValue: mockHeroesService }
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
@@ -133,10 +121,8 @@ describe('GridHeroViewComponent', () => {
 
   it('shoult call getHeroes and getStatusSpinner methods on ngOnInit', () => {
     spyOn(component, 'getHeroes');
-    spyOn(component, 'getStatusSpinner');
     component.ngOnInit();
     expect(component.getHeroes).toHaveBeenCalled();
-    expect(component.getStatusSpinner).toHaveBeenCalled();
   });
 
   describe('getHeroes method', () => {
@@ -188,19 +174,6 @@ describe('GridHeroViewComponent', () => {
     component.handleEventRemove();
     expect(component.paginator.pageIndex).toBe(0);
     expect(spy).toHaveBeenCalled();
-  });
-
-  describe('getStatusSpinner method', () => {
-    it('should set showSpinner true', () => {
-      mockLoadingService.setLoading(true);
-      component.getStatusSpinner();
-      expect(mockLoadingService.loadingSub.value).toBeTrue();
-    });
-    it('should set showSpinner false', () => {
-      mockLoadingService.setLoading(false);
-      component.getStatusSpinner();
-      expect(mockLoadingService.loadingSub.value).toBeFalse();
-    });
   });
 
 });

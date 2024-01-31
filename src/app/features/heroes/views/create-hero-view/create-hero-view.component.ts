@@ -5,7 +5,6 @@ import { HeroesService } from '../../shared/services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
-import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
   selector: 'app-create-hero-view',
@@ -22,12 +21,10 @@ export class CreateHeroViewComponent implements OnInit {
   constructor(private readonly heroService: HeroesService,
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
-    private readonly snackBar: MatSnackBar,
-    private readonly loading: LoadingService) {}
+    private readonly snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.initCreateForm();
-    this.getStatusSpinner();
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id) {
       this.getHeroById(this.id);
@@ -107,8 +104,7 @@ export class CreateHeroViewComponent implements OnInit {
   saveHero(): void {
     this.heroService.createHero(this.createObjHero()).subscribe({
       next: (hero: Hero) => {
-        console.log('Hero created: ', hero); // TODO
-        this.openSnackBar('Created Hero!', 'save');
+        this.openSnackBar(`Created ${hero.name} Hero!`, 'save');
       }, complete: () => {
         this.heroService.totalHeroes++;
         this.router.navigate(['/heroes']);
@@ -128,21 +124,23 @@ export class CreateHeroViewComponent implements OnInit {
   }
   
   setHeroToForm(hero: Hero): void {
-    this.controls.name.setValue(hero.name);
-    this.controls.gender.setValue(hero.appearance.gender);
-    this.controls.race.setValue(hero.appearance.race);
-    this.controls.height.setValue(hero.appearance.height);
-    this.controls.weight.setValue(hero.appearance.weight);
-    this.controls.intelligence.setValue(hero.powerstats.intelligence);
-    this.controls.strength.setValue(hero.powerstats.strength);
-    this.controls.speed.setValue(hero.powerstats.speed);
-    this.controls.durability.setValue(hero.powerstats.durability);
-    this.controls.power.setValue(hero.powerstats.power);
-    this.controls.combat.setValue(hero.powerstats.combat);
-    this.controls.fullName.setValue(hero.biography.fullName);
-    this.controls.alias.setValue(hero.biography.aliases);
-    this.controls.publisher.setValue(hero.biography.publisher);
-    this.controls.image.setValue(hero.image);
+    this.createForm.setValue({
+      name: hero.name,
+      gender: hero.appearance.gender,
+      race: hero.appearance.race,
+      height: hero.appearance.height,
+      weight: hero.appearance.weight,
+      intelligence: hero.powerstats.intelligence,
+      strength: hero.powerstats.strength,
+      speed: hero.powerstats.speed,
+      durability: hero.powerstats.durability,
+      power: hero.powerstats.power,
+      combat: hero.powerstats.combat,
+      fullName: hero.biography.fullName,
+      alias: hero.biography.aliases,
+      publisher: hero.biography.publisher,
+      image: hero.image
+    });
   }
 
   openSnackBar(message: string, icon?: string) {
@@ -154,14 +152,6 @@ export class CreateHeroViewComponent implements OnInit {
       },
       verticalPosition: 'top',
       horizontalPosition: 'right'
-    });
-  }
-
-  getStatusSpinner(): void {
-    this.loading.loadingSub.subscribe({
-      next: (value: boolean) => {
-        this.showSpinner = value;
-      }
     });
   }
 

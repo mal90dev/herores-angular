@@ -26,5 +26,13 @@ export class ModalDetailsComponent {
   getIconPowerstats(key: keyof typeof IconsPowerStats): string {
     return IconsPowerStats[key];
   }
+  
+  trackByFnString(index: number, item: {key: string, value: string | string[]}): any {
+    return item.key;
+  }
+
+  trackByFnNumber(index: number, item: {key: string, value: number}): string {
+    return item.key;
+  }
 
 }

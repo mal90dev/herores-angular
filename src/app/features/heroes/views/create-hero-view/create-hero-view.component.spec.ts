@@ -3,7 +3,6 @@ import { CreateHeroViewComponent } from './create-hero-view.component';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
-import { LoadingService } from 'src/app/core/services/loading.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -72,14 +71,6 @@ class MockHeroesService {
   }
 }
 
-class MockLoadingService {
-  loadingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  
-  setLoading(value: boolean): void {
-    this.loadingSub.next(value);
-  }
-}
-
 class MockActivateRoute {
   value = '123';
   snapshot = { 
@@ -100,7 +91,6 @@ describe('CreateHeroViewComponent', () => {
   let component: CreateHeroViewComponent;
   let fixture: ComponentFixture<CreateHeroViewComponent>;
   let mockHeroesService: MockHeroesService;
-  let mockLoadingService: MockLoadingService;
   let mockActivatedRoute: MockActivateRoute;
 
   const hero: Hero = {
@@ -136,7 +126,6 @@ describe('CreateHeroViewComponent', () => {
 
   beforeEach(async () => {
     mockHeroesService = new MockHeroesService();
-    mockLoadingService = new MockLoadingService();
     mockActivatedRoute = new MockActivateRoute();
 
     await TestBed.configureTestingModule({
@@ -149,7 +138,6 @@ describe('CreateHeroViewComponent', () => {
       ],
       providers: [
         { provide: HeroesService, useValue: mockHeroesService },
-        { provide: LoadingService, useValue: mockLoadingService },
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
         { provide: MatSnackBar, useValue: mockSnackBar },
       ],
@@ -281,19 +269,6 @@ describe('CreateHeroViewComponent', () => {
       },
       verticalPosition: 'top',
       horizontalPosition: 'right',
-    });
-  });
-
-  describe('getSatusSpinner method', () => {
-    it('should subscribe to loading and set current value showSpinner to false', () => {
-      component.getStatusSpinner();
-      mockLoadingService.setLoading(false);
-      expect(component.showSpinner).toBeFalse();
-    });
-    it('should subscribe to loading and set current value showSpinner to true', () => {
-      component.getStatusSpinner();
-      mockLoadingService.setLoading(true);
-      expect(component.showSpinner).toBeTrue();
     });
   });
 
