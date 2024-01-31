@@ -1,11 +1,19 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
+  standalone: true,
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class SearchComponent implements OnInit {
 

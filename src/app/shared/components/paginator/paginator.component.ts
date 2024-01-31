@@ -1,10 +1,15 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
+  standalone: true,
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.scss']
+  styleUrls: ['./paginator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    MatPaginatorModule
+  ],
 })
 export class PaginatorComponent implements OnChanges {
 

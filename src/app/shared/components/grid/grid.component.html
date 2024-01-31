@@ -1,0 +1,7 @@
+<div class="">
+  <mat-grid-list cols="4">
+      <mat-grid-tile *ngFor="let hero of heroes; trackBy: trackByFn">
+        <app-card [hero]="hero" (onRemove)="handleRemove($event)" (onDetails)="handleDetails($event)"/>
+      </mat-grid-tile>
+  </mat-grid-list>
+</div>

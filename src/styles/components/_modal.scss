@@ -1,0 +1,48 @@
+.modal {
+  display: contents;
+  .modal__img {
+    text-align: center;
+    img {
+      border-radius: 5px;
+      border: solid 2px #673ab7;
+      margin-top: 1rem;
+      width: 25%;
+    }
+  }
+  .modal__name {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .modal__biography {
+    padding: 0.5rem 0rem 0rem 2rem;
+    .modal__biography--item {
+      padding: 0rem 0rem 0.5rem 0rem;
+    }
+  }
+  .modal__app-pow {
+    padding: 0rem 0rem 1rem 2rem;
+    display: flex;
+    .modal__appearance {
+      flex: 1;
+      .modal__app-pow--item {
+        align-items: center;
+        display: flex;
+        margin: 0rem 0rem 0.5rem 0.2rem;
+      }
+    }
+    .modal__powerstats {
+      flex: 1;
+      .modal__app-pow--item {
+        align-items: center;
+        display: flex;
+        margin: 0rem 0rem 0.5rem 0.2rem;
+      }
+    }
+  }
+  .modal__icon {
+    font-size: 18px;
+    margin-right: 0.1rem;
+    display: flex;
+    align-items: center;
+  }
+}

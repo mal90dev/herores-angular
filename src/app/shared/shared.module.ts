@@ -23,8 +23,6 @@ const materialModules = [
 @NgModule({
   declarations: [
     SafePipe,
-    SnackBarComponent,
-    DialogComponent,
     UpperCaseFirstDirective,
     SpinnerComponent
   ],

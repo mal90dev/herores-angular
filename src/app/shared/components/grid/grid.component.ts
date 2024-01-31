@@ -1,19 +1,41 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Hero } from '../shared/interfaces/hero.interface';
-import { HeroesService } from '../shared/services/heroes.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
+import { HeroesService } from '../../../features/heroes/shared/services/heroes.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
-import { ModalDetailsComponent } from '../modal-details/modal-details.component';
-
+import { ModalDetailsComponent } from '../../../features/heroes/modal-details/modal-details.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { CardComponent } from '../card/card.component';
+import { CommonModule } from '@angular/common';
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 @Component({
+  standalone: true,
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    MatGridListModule,
+    CardComponent
+  ]
 })
 export class GridComponent {
 
   @Input() heroes: Hero[] | null = [];
-  @Output() eventRemove = new EventEmitter<void>(); 
+  @Output() eventRemove = new EventEmitter<void>();
+
+  tiles: Tile[] = [
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+  ];
 
   constructor(private readonly heroService: HeroesService,
     private readonly dialog: MatDialog) {
@@ -57,7 +79,7 @@ export class GridComponent {
 
   openModal(hero: Hero): void {
     this.dialog.open(ModalDetailsComponent, {
-      width: '550px',
+      width: '500px',
       height: '600px',
       enterAnimationDuration: '1000',
       exitAnimationDuration: '1000',
@@ -73,6 +95,10 @@ export class GridComponent {
         this.openModal(hero);
       }
     });
+  }
+
+  trackByFn(index: number, hero: Hero): number {
+    return hero.id!;
   }
 
 }

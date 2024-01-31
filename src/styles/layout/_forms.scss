@@ -1,0 +1,30 @@
+.form {
+  padding-top: 2rem;
+
+  .form__field {
+    margin-right: 1rem;
+    &--small {
+      width: 8rem;
+    }
+    &--medium {
+      width: 20rem;
+    }
+    &--large {
+      width: 30rem;
+    }
+  }
+
+  .form__img {
+    height: 15%;
+    width: 15%;
+  }
+  .form__span {
+    display: flex;
+    margin: 1rem 1rem 0rem 0rem;
+  }
+
+  .form__divider {
+    padding-bottom: 2rem;
+    width: 90%;
+  }
+}

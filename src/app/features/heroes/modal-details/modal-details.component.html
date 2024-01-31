@@ -1,42 +1,39 @@
-<div class="container modal-details">
-  <div class="modal-details__img">
-    <div class="text-center">
-      <img [src]="hero.image" class="" alt="hero image">
-    </div>
+<div class="container modal">
+  <div class="modal__img">
+    <img [src]="hero.image" class="" alt="hero image">
   </div>
-  <div class="text-center modal-details__name">
+  <div class="modal__name">
     <span>{{ hero.name }},</span>
     <span class="fst-italic"> "{{ hero.biography.aliases }}"</span>
   </div>
-  <div class="row modal-details__biography">
-    <h1 class="display-6">Biography</h1>
-      <div class="col-12 modal-details__biography--item">
+  <div class="modal__biography">
+    <h1 class="">Biography</h1>
+      <div class="modal__biography--item">
         <strong>Full name:</strong> {{ hero.biography.fullName }}
       </div>
-      <div class="col-12 modal-details__biography--item">
+      <div class="modal__biography--item">
         <strong>Publisher:</strong> {{ hero.biography.publisher }}
     </div>
   </div>
-  <div class="row modal-details__app-pow">
-    <div class="col-6">
-      <h1 class="display-6">Appearance</h1>
+  <div class="modal__app-pow">
+    <div class="modal__appearance">
+      <h1 class="">Appearance</h1>
       <ng-container *ngFor="let item of hero.appearance |keyvalue">
-        <div class="col-12 modal-details__app-pow--item">
-          <i [class]="getIconAppearance(item.key)"></i>
+        <div class="modal__app-pow--item">
+          <!-- <i [class]="getIconAppearance(item.key)"></i> -->
+          <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconAppearance(item.key)"></mat-icon>
           <strong>{{item.key}}:</strong> {{item.value}}
         </div>
       </ng-container>
     </div>
-    <div class="col-6">
-      <div class="modal-details__powerstats">
-        <h1 class="display-6">Powerstats</h1>
-        <ng-container *ngFor="let item of hero.powerstats |keyvalue">
-          <div class="col-12 modal-details__app-pow--item">
-            <i [class]="getIconPowerstats(item.key)"></i>
-            <strong>{{item.key}}:</strong> {{item.value}}
-          </div>
-        </ng-container>
-      </div>
+    <div class="modal__powerstats">
+      <h1 class="">Powerstats</h1>
+      <ng-container *ngFor="let item of hero.powerstats |keyvalue">
+        <div class="modal__app-pow--item">
+          <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconPowerstats(item.key)"></mat-icon>
+          <strong>{{item.key}}:</strong> {{item.value}}
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
