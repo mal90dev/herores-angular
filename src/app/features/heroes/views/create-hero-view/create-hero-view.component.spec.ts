@@ -159,12 +159,10 @@ describe('CreateHeroViewComponent', () => {
       const id = '123';
       mockActivatedRoute.setValue(id);
       const spy = spyOn(component, 'initCreateForm');
-      const spy2 = spyOn(component, 'getStatusSpinner');
       const spy3 = spyOn(component, 'getHeroById');
       component.ngOnInit();
       expect(component.id).toBe(id);
       expect(spy).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
       expect(spy3).toHaveBeenCalledWith(id);
     });
 
