@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, input, signal } from '@angular/core';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -11,32 +11,23 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
     MatPaginatorModule
   ],
 })
-export class PaginatorComponent implements OnChanges {
+export class PaginatorComponent {
 
   @Output() eventPaginator = new EventEmitter<PageEvent>();
-  @Input() totalHeroes: number = 0;
 
-  length = 25;
-  pageSize = 8;
-  pageIndex = 0;
+  totalHeroes = input.required<number>();
+  pageSize = signal(8);
+  pageIndex = signal(0);
   pageSizeOptions = [5, 10, 25];
 
   hidePageSize = true;
   showPageSizeOptions = true;
   showFirstLastButtons = true;
   disabled = false;
-  pageEvent?: PageEvent;
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes?.totalHeroes?.currentValue) {
-      this.length = changes.totalHeroes.currentValue; // mirar si está bien
-    }
-  }
 
   handlePageEvent(e: PageEvent): void {
-    this.pageEvent = e;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+    this.pageSize.set(e.pageSize);
+    this.pageIndex.set(e.pageIndex);
     this.eventPaginator.next(e);
   }
 }

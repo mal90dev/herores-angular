@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, input, signal } from '@angular/core';
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -22,16 +22,16 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class CardComponent {
 
-  @Input() hero?: Hero;
+  hero = input.required<Hero>();
   @Output() onRemove = new EventEmitter<number|undefined>(); 
-  @Output() onDetails = new EventEmitter<number|undefined>(); 
+  @Output() onDetails = new EventEmitter<number|undefined>();
 
   remove(): void {
-    this.onRemove.next(this.hero?.id);
+    this.onRemove.next(this.hero().id);
   }
 
   details(): void {
-    this.onDetails.next(this.hero?.id);
+    this.onDetails.next(this.hero().id);
   }
   
 }

@@ -17,7 +17,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SearchComponent implements OnInit {
 
-
   @Output() searchText: BehaviorSubject<string|null> = new BehaviorSubject<string|null>('');
   searchForm!: FormGroup;
 

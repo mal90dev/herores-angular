@@ -1,6 +1,5 @@
 import { Component, ViewChild, signal } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { BehaviorSubject } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { PaginatorComponent } from '../../../../shared/components/paginator/paginator.component';
@@ -14,9 +13,8 @@ export class GridHeroViewComponent {
 
   @ViewChild('paginator') paginator!: PaginatorComponent;
 
-  heroes: BehaviorSubject<Hero[]> = new BehaviorSubject<Hero[]>([]);
-  totalHeroes: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  pageIndex!: number;
+  heroes = signal<Hero[]>([]);
+  totalHeroes = signal<number>(0);
   showSpinner = signal(false);
 
   constructor(private readonly heroService: HeroesService) {}
@@ -26,19 +24,19 @@ export class GridHeroViewComponent {
   }
 
   getHeroes(event?: PageEvent): void {
-    this.totalHeroes.next(this.heroService.totalHeroes);
+    this.totalHeroes.set(this.heroService.totalHeroes);
     const page = event?.pageIndex || 0;
     const numItems = event?.pageSize || 8;
     this.heroService.getHeroes(page, numItems).subscribe({
       next: (heroes: Hero[]) => {
-        this.heroes.next(heroes);
+        this.heroes.set(heroes);
       }
     });
   }
 
   handleEventPaginator(event: PageEvent): void {
     event.pageIndex = event.pageIndex + 1;
-    this.totalHeroes.next(this.heroService.totalHeroes);
+    this.totalHeroes.set(this.heroService.totalHeroes);
     this.getHeroes(event);
   }
 
@@ -48,8 +46,8 @@ export class GridHeroViewComponent {
     } else if (value) {
       this.heroService.searchHeroes(value).subscribe({
         next: (hero: Hero[]) => {
-          this.totalHeroes.next(hero?.length);
-          this.heroes.next(hero);
+          this.totalHeroes.set(hero?.length);
+          this.heroes.set(hero);
         }
       });
     }
@@ -57,7 +55,7 @@ export class GridHeroViewComponent {
 
   handleEventRemove(): void {
     this.getHeroes();
-    this.paginator.pageIndex = 0;
+    this.paginator.pageIndex.set(0);
   }
 
 }

@@ -1,8 +1,8 @@
 
 <app-search (searchText)="handleSearchChange($event)"/>
 <button class="margin-b-1" mat-raised-button color="primary" routerLink="/heroes/create">Add Hero</button>
-<app-grid [heroes]="heroes | async" (eventRemove)="handleEventRemove()"/>
+<app-grid [heroes]="heroes()" (eventRemove)="handleEventRemove()"/>
 <app-paginator #paginator
   (eventPaginator)="handleEventPaginator($event)" 
-  [totalHeroes]="(totalHeroes | async) || 0"
+  [totalHeroes]="totalHeroes() || 0"
 />

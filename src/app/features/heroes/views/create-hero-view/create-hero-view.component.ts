@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
@@ -15,8 +15,8 @@ export class CreateHeroViewComponent implements OnInit {
 
   createForm!: FormGroup;
   avatarImg = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=128';
-  id!: string|null;
-  showSpinner = false;
+  id = signal('');
+
 
   constructor(private readonly heroService: HeroesService,
     private readonly activatedRoute: ActivatedRoute,
@@ -25,9 +25,9 @@ export class CreateHeroViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCreateForm();
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id.set(this.activatedRoute.snapshot.paramMap.get('id') as string);
     if (this.id) {
-      this.getHeroById(this.id);
+      this.getHeroById(this.id());
     }
   }
 
@@ -57,7 +57,7 @@ export class CreateHeroViewComponent implements OnInit {
 
   onSubmit(): void {
     if (this.id) {
-      this.updateHero(this.createObjHero(this.id));
+      this.updateHero(this.createObjHero(this.id()));
     } else {
       this.saveHero();
     }

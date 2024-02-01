@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
 import { HeroesService } from '../../../features/heroes/shared/services/heroes.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -27,7 +27,8 @@ export interface Tile {
 })
 export class GridComponent {
 
-  @Input() heroes: Hero[] | null = [];
+  // @Input() heroes: Hero[] | null = [];
+  heroes = input.required<Hero[]>();
   @Output() eventRemove = new EventEmitter<void>();
 
   tiles: Tile[] = [
