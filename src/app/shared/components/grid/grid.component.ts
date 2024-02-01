@@ -98,8 +98,4 @@ export class GridComponent {
     });
   }
 
-  trackByFn(index: number, hero: Hero): number {
-    return hero.id!;
-  }
-
 }

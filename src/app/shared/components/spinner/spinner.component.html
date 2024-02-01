@@ -1,4 +1,6 @@
 <div class="spinner">
-  <mat-spinner *ngIf="loadingService.loadingSub | async" [color]="color"></mat-spinner>
+  @if (loadingService.loadingSub | async) {
+    <mat-spinner [color]="color"></mat-spinner>
+  }
 </div>
 <div class="spinner__overlay" *ngIf="loadingService.loadingSub | async"></div>

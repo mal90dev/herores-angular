@@ -18,21 +18,21 @@
   <div class="modal__app-pow">
     <div class="modal__appearance">
       <h1 class="">Appearance</h1>
-      <ng-container *ngFor="let item of hero.appearance | keyvalue; trackBy: trackByFnString">
-        <div class="modal__app-pow--item">
-          <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconAppearance(item.key)"></mat-icon>
-          <strong>{{item.key}}:</strong> {{item.value}}
-        </div>
-      </ng-container>
+        @for (item of hero.appearance | keyvalue; track item.key) {
+          <div class="modal__app-pow--item">
+            <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconAppearance(item.key)"></mat-icon>
+            <strong>{{item.key}}:</strong> {{item.value}}
+          </div>
+        }
     </div>
     <div class="modal__powerstats">
       <h1 class="">Powerstats</h1>
-      <ng-container *ngFor="let item of hero.powerstats | keyvalue; trackBy: trackByFnNumber">
-        <div class="modal__app-pow--item">
-          <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconPowerstats(item.key)"></mat-icon>
-          <strong>{{item.key}}:</strong> {{item.value}}
-        </div>
-      </ng-container>
+        @for (item of hero.powerstats | keyvalue; track item.key) {
+          <div class="modal__app-pow--item">
+            <mat-icon class="modal__icon" aria-hidden="false" aria-label="icon" [fontIcon]="getIconPowerstats(item.key)"></mat-icon>
+            <strong>{{item.key}}:</strong> {{item.value}}
+          </div>
+        }
     </div>
   </div>
 </div>
