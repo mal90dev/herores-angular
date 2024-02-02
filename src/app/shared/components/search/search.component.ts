@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/cor
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BehaviorSubject } from 'rxjs';
+import { UpperCaseFirstDirective } from '../../directives/upper-case-first.directive';
 
 @Component({
   standalone: true,
@@ -12,7 +13,8 @@ import { BehaviorSubject } from 'rxjs';
   imports: [
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UpperCaseFirstDirective
   ]
 })
 export class SearchComponent implements OnInit {

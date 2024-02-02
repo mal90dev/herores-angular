@@ -1,15 +1,33 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
+import { SafePipe } from 'src/app/shared/pipes/safe.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
+  standalone: true,
   selector: 'app-create-hero-view',
   templateUrl: './create-hero-view.component.html',
-  styleUrls: ['./create-hero-view.component.scss']
+  styleUrls: ['./create-hero-view.component.scss'],
+  imports: [
+    CommonModule,
+    SafePipe,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
+  ]
 })
 export class CreateHeroViewComponent implements OnInit {
 

@@ -4,12 +4,19 @@ import { Hero } from '../shared/interfaces/hero.interface';
 import { IconsPowerStats } from '../shared/constants/IconsPowerStats';
 import { IconsAppearance } from '../shared/constants/IconsAppearance';
 import { DialogData } from '../shared/interfaces/dialogData.interface';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
+  standalone: true,
   selector: 'app-modal-details',
   templateUrl: './modal-details.component.html',
-  styleUrls: ['./modal-details.component.scss']
+  styleUrls: ['./modal-details.component.scss'],
+  imports: [
+    CommonModule,
+    MatIconModule
+  ]
 })
 export class ModalDetailsComponent {
 

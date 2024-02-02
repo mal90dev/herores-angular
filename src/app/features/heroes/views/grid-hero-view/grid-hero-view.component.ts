@@ -3,11 +3,25 @@ import { PageEvent } from '@angular/material/paginator';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { PaginatorComponent } from '../../../../shared/components/paginator/paginator.component';
+import { CommonModule } from '@angular/common';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { GridComponent } from 'src/app/shared/components/grid/grid.component';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-grid-hero-view',
   templateUrl: './grid-hero-view.component.html',
-  styleUrls: ['./grid-hero-view.component.scss']
+  styleUrls: ['./grid-hero-view.component.scss'],
+  imports: [
+    CommonModule,
+    SearchComponent,
+    GridComponent,
+    PaginatorComponent,
+    MatButtonModule,
+    RouterModule
+  ]
 })
 export class GridHeroViewComponent {
 

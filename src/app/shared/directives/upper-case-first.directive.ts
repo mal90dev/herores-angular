@@ -2,7 +2,8 @@ import { Directive, HostListener } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[appUpperCaseFirst]'
+  selector: '[appUpperCaseFirst]',
+  standalone: true
 })
 export class UpperCaseFirstDirective {
 
