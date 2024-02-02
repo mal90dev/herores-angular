@@ -27,7 +27,6 @@ export interface Tile {
 })
 export class GridComponent {
 
-  // @Input() heroes: Hero[] | null = [];
   heroes = input.required<Hero[]>();
   @Output() eventRemove = new EventEmitter<void>();
 

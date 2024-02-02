@@ -8,7 +8,6 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
       imports: [ MatDividerModule ]
     })
     .compileComponents();

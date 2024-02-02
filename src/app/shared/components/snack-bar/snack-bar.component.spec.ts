@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SnackBarComponent } from './snack-bar.component';
 import { Hero } from 'src/app/features/heroes/shared/interfaces/hero.interface';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
@@ -45,7 +44,7 @@ describe('SnackBarComponent', () => {
       hero: hero
     };
     await TestBed.configureTestingModule({
-      declarations: [ SnackBarComponent ],
+      declarations: [],
       imports: [
         MatIconModule
       ],

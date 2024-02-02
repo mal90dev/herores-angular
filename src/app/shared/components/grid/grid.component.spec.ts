@@ -12,6 +12,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { HeroesService } from '../../../features/heroes/shared/services/heroes.service';
 import { Observable, of } from 'rxjs';
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
+import { RouterTestingModule } from '@angular/router/testing';
 
 class MockHeroesService {
   
@@ -121,7 +122,6 @@ describe('GridComponent', () => {
     mockMatDialog = new MockMatDialog;
 
     TestBed.configureTestingModule({
-      declarations: [ GridComponent ],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -131,7 +131,8 @@ describe('GridComponent', () => {
         MatIconModule,
         MatMenuModule,
         HttpClientTestingModule,
-        MatDialogModule
+        MatDialogModule,
+        RouterTestingModule
       ],
       providers: [
         { provide: MatDialog, useValue: mockMatDialog },
@@ -143,6 +144,7 @@ describe('GridComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GridComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('heroes', [hero]);
     fixture.detectChanges();
   });
 

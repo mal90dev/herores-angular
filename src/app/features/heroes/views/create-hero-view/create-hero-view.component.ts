@@ -17,7 +17,6 @@ export class CreateHeroViewComponent implements OnInit {
   avatarImg = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=128';
   id = signal('');
 
-
   constructor(private readonly heroService: HeroesService,
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
@@ -26,7 +25,7 @@ export class CreateHeroViewComponent implements OnInit {
   ngOnInit(): void {
     this.initCreateForm();
     this.id.set(this.activatedRoute.snapshot.paramMap.get('id') as string);
-    if (this.id) {
+    if (this.id()) {
       this.getHeroById(this.id());
     }
   }
@@ -56,7 +55,7 @@ export class CreateHeroViewComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.id) {
+    if (this.id()) {
       this.updateHero(this.createObjHero(this.id()));
     } else {
       this.saveHero();
@@ -115,8 +114,7 @@ export class CreateHeroViewComponent implements OnInit {
   updateHero(hero: Hero): void {
     this.heroService.updateHero(hero).subscribe({
       next: (heroUpdated: Hero) => {
-        console.log(heroUpdated);
-        this.openSnackBar('Updated Hero!', 'check');
+        this.openSnackBar(`Updated ${heroUpdated.name} Hero!`, 'check');
       }, complete: () => {
         this.router.navigate(['/heroes']);
       }

@@ -10,7 +10,7 @@ describe('DialogComponent', () => {
   beforeEach(async () => {
     mockMatDialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);
     await TestBed.configureTestingModule({
-      declarations: [ DialogComponent ],
+      declarations: [],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: mockMatDialogRef }

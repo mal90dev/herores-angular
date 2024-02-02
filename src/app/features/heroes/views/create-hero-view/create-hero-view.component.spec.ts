@@ -129,12 +129,12 @@ describe('CreateHeroViewComponent', () => {
     mockActivatedRoute = new MockActivateRoute();
 
     await TestBed.configureTestingModule({
-      declarations: [ CreateHeroViewComponent, SafePipe ],
+      declarations: [CreateHeroViewComponent, SafePipe],
       imports: [
         RouterTestingModule,
         MatSnackBarModule,
+        ReactiveFormsModule,
         FormsModule,
-        ReactiveFormsModule
       ],
       providers: [
         { provide: HeroesService, useValue: mockHeroesService },
@@ -161,7 +161,7 @@ describe('CreateHeroViewComponent', () => {
       const spy = spyOn(component, 'initCreateForm');
       const spy3 = spyOn(component, 'getHeroById');
       component.ngOnInit();
-      expect(component.id).toBe(id);
+      expect(component.id()).toBe(id);
       expect(spy).toHaveBeenCalled();
       expect(spy3).toHaveBeenCalledWith(id);
     });
@@ -181,14 +181,14 @@ describe('CreateHeroViewComponent', () => {
 
   describe('onSubmit method', () => {
     it('should update the hero', () => {
-      component.id = '123';
+      component.id.set('123');
       const spy = spyOn(component, 'updateHero');
       component.onSubmit();
       expect(spy).toHaveBeenCalled();
     });
 
     it('should save the hero', () => {
-      component.id = '';
+      component.id.set('');
       const spy = spyOn(component, 'saveHero');
       component.onSubmit();
       expect(spy).toHaveBeenCalled();
@@ -231,7 +231,7 @@ describe('CreateHeroViewComponent', () => {
       const spy = spyOn(component, 'openSnackBar');
       const routerSpy = spyOn(component['router'], 'navigate');
       component.saveHero();
-      expect(spy).toHaveBeenCalledWith('Created Hero!', 'save');
+      expect(spy).toHaveBeenCalledWith(`Created ${hero.name} Hero!`, 'save');
       expect(mockHeroesService.totalHeroes).toBe(2);
       expect(routerSpy).toHaveBeenCalledWith(['/heroes']);
     });
@@ -242,7 +242,7 @@ describe('CreateHeroViewComponent', () => {
       const spy = spyOn(component, 'openSnackBar');
       const routerSpy = spyOn(component['router'], 'navigate');
       component.updateHero(hero);
-      expect(spy).toHaveBeenCalledWith('Updated Hero!', 'check');
+      expect(spy).toHaveBeenCalledWith(`Updated ${hero.name} Hero!`, 'check');
       expect(mockHeroesService.totalHeroes).toBe(1);
       expect(routerSpy).toHaveBeenCalledWith(['/heroes']);
     });

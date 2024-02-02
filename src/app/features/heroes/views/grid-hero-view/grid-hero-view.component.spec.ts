@@ -6,6 +6,11 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { PaginatorComponent } from 'src/app/shared/components/paginator/paginator.component';
+import { GridComponent } from 'src/app/shared/components/grid/grid.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 class MockHeroesService {
   
@@ -96,11 +101,19 @@ describe('GridHeroViewComponent', () => {
   beforeEach(async () => {
     mockHeroesService = new MockHeroesService();
     await TestBed.configureTestingModule({
-      declarations: [ GridHeroViewComponent ],
+      declarations: [ 
+        GridHeroViewComponent
+      ],
+      imports: [
+        PaginatorComponent,
+        GridComponent,
+        SearchComponent,
+        NoopAnimationsModule,
+        RouterTestingModule
+      ],
       providers: [
         { provide: HeroesService, useValue: mockHeroesService }
-      ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      ]
     })
     .compileComponents();
 
@@ -133,14 +146,13 @@ describe('GridHeroViewComponent', () => {
         pageSize: 8,
         length: 10
       };
-      const spy = spyOn(component.totalHeroes, 'next');  
       component.getHeroes(event);
-      expect(spy).toHaveBeenCalledWith(mockHeroesService.totalHeroes);
-      expect(component.heroes.value).toEqual([hero]);
+      expect(component.totalHeroes()).toBe(mockHeroesService.totalHeroes);
+      expect(component.heroes()).toEqual([hero]);
     });
   });
   
-  it('should call getHeroes method and update totalHeroes', () => {
+  it('should call handleEventPaginator method and update totalHeroes', () => {
     const event: PageEvent = {
       pageIndex: 0,
       previousPageIndex: 0,
@@ -148,10 +160,9 @@ describe('GridHeroViewComponent', () => {
       length: 10
     };
     const spy = spyOn(component, 'getHeroes');
-    const spy2 = spyOn(component.totalHeroes, 'next');
     component.handleEventPaginator(event);
     expect(spy).toHaveBeenCalled();
-    expect(spy2).toHaveBeenCalledWith(mockHeroesService.totalHeroes);
+    expect(component.totalHeroes()).toBe(mockHeroesService.totalHeroes);
   });
 
   describe('handleSearchChange method', () => {
@@ -162,17 +173,18 @@ describe('GridHeroViewComponent', () => {
     });
     it('should call searchHeroes service and filter hero', () => {
       const value = 'bomba';
-      const spy = spyOn(component.totalHeroes, 'next');
       component.handleSearchChange(value);
-      expect(spy).toHaveBeenCalledWith(mockHeroesService.totalHeroes);
-      expect(component.heroes.value).toEqual([hero]);
+      expect(component.totalHeroes()).toBe(mockHeroesService.totalHeroes);
+      expect(component.heroes()).toEqual([hero]);
     });
   });
 
   it('should call getHeroes method and set paginator index to 0', () => {
     const spy = spyOn(component, 'getHeroes');
+    component.paginator.pageIndex.set(0);
+    component.paginator.pageSize.set(8);
     component.handleEventRemove();
-    expect(component.paginator.pageIndex).toBe(0);
+    expect(component.paginator.pageIndex()).toBe(0);
     expect(spy).toHaveBeenCalled();
   });
 

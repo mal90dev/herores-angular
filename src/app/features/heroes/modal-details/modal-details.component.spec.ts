@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalDetailsComponent } from './modal-details.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from '../shared/interfaces/hero.interface';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('ModalDetailsComponent', () => {
   let component: ModalDetailsComponent;
@@ -47,6 +48,9 @@ describe('ModalDetailsComponent', () => {
       declarations: [ ModalDetailsComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: mockMatDialogData },
+      ],
+      imports: [
+        MatIconModule
       ]
     })
     .compileComponents();

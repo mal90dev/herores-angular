@@ -5,11 +5,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
+import { Hero } from 'src/app/features/heroes/shared/interfaces/hero.interface';
 
 describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<CardComponent>;
+
   const hero: Hero = {
     name: "A-Bombaa",
     appearance: {
@@ -43,18 +44,18 @@ describe('CardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [],
       imports: [
         MatCardModule,
         MatIconModule,
         MatMenuModule,
         RouterTestingModule
-      ],
-      declarations: [ CardComponent ]
+      ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('hero', hero);
     fixture.detectChanges();
   });
 
@@ -63,33 +64,18 @@ describe('CardComponent', () => {
   });
 
   describe('remove method', () => {
-    it('should emit an onRemove event with the id', () => {
-      component.hero = hero;
+    it('should emit an onRemove event', () => {
       const spy = spyOn(component.onRemove, 'next');
       component.remove();
       expect(spy).toHaveBeenCalledWith(hero.id);
-    });
-
-    it('should not emit an onRemove event with the id', () => {
-      component.hero = undefined;
-      const spy = spyOn(component.onRemove, 'next');
-      component.remove();
-      expect(spy).toHaveBeenCalledWith(undefined);
     });
   });
 
   describe('details method', () => {
-    it('should emit an onDetails event with the id', () => {
-      component.hero = hero;
+    it('should emit an onDetails event', () => {
       const spy = spyOn(component.onDetails, 'next');
       component.details();
       expect(spy).toHaveBeenCalledWith(hero.id);
-    });
-    it('should not emit an onDetails event with the id', () => {
-      component.hero = undefined;
-      const spy = spyOn(component.onDetails, 'next');
-      component.details();
-      expect(spy).toHaveBeenCalledWith(undefined);
     });
   });
 
