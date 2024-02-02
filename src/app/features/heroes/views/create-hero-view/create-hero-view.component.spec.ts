@@ -5,12 +5,12 @@ import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material/snack-bar';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SafePipe } from 'src/app/shared/pipes/safe.pipe';
 import { ActivatedRoute } from '@angular/router';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { ComponentType } from '@angular/cdk/portal';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 class MockHeroesService {
   
@@ -129,20 +129,25 @@ describe('CreateHeroViewComponent', () => {
     mockActivatedRoute = new MockActivateRoute();
 
     await TestBed.configureTestingModule({
-      declarations: [CreateHeroViewComponent, SafePipe],
       imports: [
         RouterTestingModule,
         MatSnackBarModule,
         ReactiveFormsModule,
+        NoopAnimationsModule,
         FormsModule,
-      ],
-      providers: [
-        { provide: HeroesService, useValue: mockHeroesService },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute },
-        { provide: MatSnackBar, useValue: mockSnackBar },
-      ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    }).compileComponents();
+        SafePipe
+      ]
+    })
+    .overrideComponent(CreateHeroViewComponent, {
+      set: { 
+        providers: [
+          { provide: HeroesService, useValue: mockHeroesService },
+          { provide: ActivatedRoute, useValue: mockActivatedRoute },
+          { provide: MatSnackBar, useValue: mockSnackBar }
+        ] 
+      },
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(CreateHeroViewComponent);
     component = fixture.componentInstance;

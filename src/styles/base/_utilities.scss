@@ -8,7 +8,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+/* Chrome 84+ y navegadores compatibles */
+@supports not (-moz-appearance: none) {
+  input[type=number] {
+    appearance: textfield;
+  }
 }

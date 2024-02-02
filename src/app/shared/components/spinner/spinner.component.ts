@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingService } from 'src/app/core/services/loading.service';
 

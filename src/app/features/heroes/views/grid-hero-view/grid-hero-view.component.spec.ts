@@ -1,15 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GridHeroViewComponent } from './grid-hero-view.component';
 import { HeroesService } from '../../shared/services/heroes.service';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Hero } from '../../shared/interfaces/hero.interface';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { PaginatorComponent } from 'src/app/shared/components/paginator/paginator.component';
 import { GridComponent } from 'src/app/shared/components/grid/grid.component';
 import { SearchComponent } from 'src/app/shared/components/search/search.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
 class MockHeroesService {
@@ -101,19 +99,18 @@ describe('GridHeroViewComponent', () => {
   beforeEach(async () => {
     mockHeroesService = new MockHeroesService();
     await TestBed.configureTestingModule({
-      declarations: [ 
-        GridHeroViewComponent
-      ],
       imports: [
         PaginatorComponent,
         GridComponent,
         SearchComponent,
         NoopAnimationsModule,
-        RouterTestingModule
-      ],
-      providers: [
-        { provide: HeroesService, useValue: mockHeroesService }
+        RouterTestingModule,
       ]
+    })
+    .overrideComponent(GridHeroViewComponent, {
+      set: { 
+        providers: [{ provide: HeroesService, useValue: mockHeroesService }] 
+      },
     })
     .compileComponents();
 

@@ -45,7 +45,6 @@ describe('ModalDetailsComponent', () => {
       hero: hero
     };
     await TestBed.configureTestingModule({
-      declarations: [ ModalDetailsComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: mockMatDialogData },
       ],

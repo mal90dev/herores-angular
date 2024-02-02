@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, input } from '@angular/core';
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';

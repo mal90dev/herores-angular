@@ -3,7 +3,6 @@ import { UpperCaseFirstDirective } from './upper-case-first.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-
 @Component({
   template: '<input appUpperCaseFirst [(ngModel)]="model">'
 })
@@ -16,16 +15,19 @@ class MockNgControl {
 }
 
 describe('UpperCaseFirstDirective', () => {
-
-
   let fixture: ComponentFixture<TestComponent>;
   let component: TestComponent;
   let inputElement: DebugElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
-      declarations: [UpperCaseFirstDirective, TestComponent],
+      imports: [
+        FormsModule,
+        UpperCaseFirstDirective
+      ],
+      declarations: [
+        TestComponent
+      ],
       providers: [
         { provide: NgControl, useClass: MockNgControl }
       ]
@@ -33,8 +35,7 @@ describe('UpperCaseFirstDirective', () => {
 
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
-    inputElement = fixture.debugElement.query(By.directive(UpperCaseFirstDirective));
-
+    inputElement = fixture.debugElement.query(By.css('input'));
     fixture.detectChanges();
   });
 

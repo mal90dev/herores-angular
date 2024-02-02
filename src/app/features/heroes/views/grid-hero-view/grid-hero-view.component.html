@@ -4,5 +4,5 @@
 <app-grid [heroes]="heroes()" (eventRemove)="handleEventRemove()"/>
 <app-paginator #paginator
   (eventPaginator)="handleEventPaginator($event)" 
-  [totalHeroes]="totalHeroes() || 0"
+  [totalHeroes]="totalHeroes()"
 />

@@ -1,5 +1,4 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-
 import { LoadingInterceptor } from './loading.interceptor';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';

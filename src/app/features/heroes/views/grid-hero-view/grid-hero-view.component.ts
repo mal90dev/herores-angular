@@ -1,4 +1,4 @@
-import { Component, ViewChild, signal } from '@angular/core';
+import { Component, ViewChild, inject, signal } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
@@ -8,6 +8,7 @@ import { SearchComponent } from 'src/app/shared/components/search/search.compone
 import { GridComponent } from 'src/app/shared/components/grid/grid.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   standalone: true,
@@ -20,7 +21,11 @@ import { RouterModule } from '@angular/router';
     GridComponent,
     PaginatorComponent,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
+  ],
+  providers: [
+    HeroesService
   ]
 })
 export class GridHeroViewComponent {
@@ -31,7 +36,9 @@ export class GridHeroViewComponent {
   totalHeroes = signal<number>(0);
   showSpinner = signal(false);
 
-  constructor(private readonly heroService: HeroesService) {}
+  heroService = inject(HeroesService);
+
+  // constructor(private readonly heroService: HeroesService) {}
 
   ngOnInit(): void {
     this.getHeroes();

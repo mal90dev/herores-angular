@@ -11,6 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   standalone: true,
@@ -26,7 +27,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
+  ],
+  providers: [
+    HeroesService,
   ]
 })
 export class CreateHeroViewComponent implements OnInit {
