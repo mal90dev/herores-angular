@@ -11,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { ComponentType } from '@angular/cdk/portal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PowerstatsHero } from '../../shared/classes/powerstats-hero.class';
+import { By } from '@angular/platform-browser';
 
 class MockHeroesService {
   
@@ -158,6 +160,12 @@ describe('CreateHeroViewComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should create form with correct form controls', () => {
+    const form = fixture.debugElement.query(By.css('form'));
+    const headingElements = fixture.debugElement.queryAll(By.css('h2.mat-h2'));
+    expect(form).toBeTruthy();
+    expect(headingElements.length).toBe(3);
+  });
 
   describe('ngOnInit method', () => {
     it('should call initCreateForm, getStatusSpinner and getHeroById method', () => {
@@ -183,6 +191,21 @@ describe('CreateHeroViewComponent', () => {
     component.initCreateForm();
     expect(component.createForm instanceof FormGroup).not.toBeUndefined();
   });
+
+  it('should add controls to form', () => {
+    const powerstatsHero = new PowerstatsHero();
+    Object.keys(component.createForm.controls).forEach(controlName => {
+      component.createForm.removeControl(controlName);
+    });
+    component.addControls(powerstatsHero);
+    expect(component.createForm.get('intelligence')).not.toBeUndefined();
+    expect(component.createForm.get('strength')).not.toBeUndefined();
+    expect(component.createForm.get('speed')).not.toBeUndefined();
+    expect(component.createForm.get('durability')).not.toBeUndefined();
+    expect(component.createForm.get('power')).not.toBeUndefined();
+    expect(component.createForm.get('combat')).not.toBeUndefined();
+  });
+
 
   describe('onSubmit method', () => {
     it('should update the hero', () => {
@@ -215,7 +238,6 @@ describe('CreateHeroViewComponent', () => {
       expect(hero.image).toEqual(component.avatarImg);
     });
   });
-
 
   describe('getHeroById method', () => {
     it('should get a hero and call setHeroToForm method with it', () => {
@@ -258,7 +280,7 @@ describe('CreateHeroViewComponent', () => {
     expect(component.controls.name.value).toEqual(hero.name);
     expect(component.controls.gender.value).toEqual(hero.appearance.gender);
     expect(component.controls.combat.value).toEqual(hero.powerstats.combat);
-    expect(component.controls.alias.value).toEqual(hero.biography.aliases);
+    expect(component.controls.aliases.value).toEqual(hero.biography.aliases.toString());
   });
 
   it('should open the snackBar', () => {

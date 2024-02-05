@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { PowerstatsHero } from '../../shared/classes/powerstats-hero.class';
+import { AppearanceHero } from '../../shared/classes/appearance-hero.class';
+import { BiographyHero } from '../../shared/classes/biography-hero.class';
 
 @Component({
   standalone: true,
@@ -37,8 +40,11 @@ import { HttpClientModule } from '@angular/common/http';
 export class CreateHeroViewComponent implements OnInit {
 
   createForm!: FormGroup;
-  avatarImg = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=128';
+  avatarImg = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=256';
   id = signal('');
+  powerstatsHero = new PowerstatsHero();
+  appearanceHero = new AppearanceHero();
+  biographyHero = new BiographyHero();
 
   constructor(private readonly heroService: HeroesService,
     private readonly activatedRoute: ActivatedRoute,
@@ -60,21 +66,17 @@ export class CreateHeroViewComponent implements OnInit {
   initCreateForm(): void {
     this.createForm = new FormGroup({
       name: new FormControl(''),
-      fullName: new FormControl(''),
-      alias: new FormControl(''),
-      publisher: new FormControl(''),
-      intelligence: new FormControl(''),
-      strength: new FormControl(''),
-      speed: new FormControl(''),
-      durability: new FormControl(''),
-      power: new FormControl(''),
-      combat: new FormControl(''),
-      gender: new FormControl(''),
-      race: new FormControl(''),
-      height: new FormControl(''),
-      weight: new FormControl(''),
       image: new FormControl('')
-    });
+    });  
+    this.addControls(this.powerstatsHero);
+    this.addControls(this.appearanceHero);
+    this.addControls(this.biographyHero);
+  }
+
+  addControls<T>(objectToBuildFrom: T): void {
+    for (const key in objectToBuildFrom) {
+      this.createForm.addControl(key, new FormControl(''));
+    }
   }
 
   onSubmit(): void {
@@ -104,7 +106,7 @@ export class CreateHeroViewComponent implements OnInit {
       },
       biography: {
         fullName: this.controls.fullName.value,
-        aliases: this.controls.alias.value,
+        aliases: this.controls.aliases.value,
         publisher: this.controls.publisher.value
       },
       image: this.controls.image.value || this.avatarImg
@@ -149,8 +151,8 @@ export class CreateHeroViewComponent implements OnInit {
       name: hero.name,
       gender: hero.appearance.gender,
       race: hero.appearance.race,
-      height: hero.appearance.height,
-      weight: hero.appearance.weight,
+      height: hero.appearance.height.toString(),
+      weight: hero.appearance.weight.toString(),
       intelligence: hero.powerstats.intelligence,
       strength: hero.powerstats.strength,
       speed: hero.powerstats.speed,
@@ -158,7 +160,7 @@ export class CreateHeroViewComponent implements OnInit {
       power: hero.powerstats.power,
       combat: hero.powerstats.combat,
       fullName: hero.biography.fullName,
-      alias: hero.biography.aliases,
+      aliases: hero.biography.aliases.toString(),
       publisher: hero.biography.publisher,
       image: hero.image
     });

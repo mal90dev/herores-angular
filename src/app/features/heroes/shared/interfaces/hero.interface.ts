@@ -1,6 +1,6 @@
-import { AppearanceHero } from './appearanceHero.interface';
-import { BiographyHero } from './biographyHero.interface';
-import { PowerstatsHero } from './powerstatsHero.interface';
+import { AppearanceHero } from '../classes/appearance-hero.class';
+import { BiographyHero } from '../classes/biography-hero.class';
+import { PowerstatsHero } from '../classes/powerstats-hero.class';
 
 export interface Hero {
   id?: number;
