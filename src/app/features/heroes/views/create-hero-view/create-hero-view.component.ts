@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    HeroesService,
+    HeroesService
   ]
 })
 export class CreateHeroViewComponent implements OnInit {
@@ -164,7 +164,7 @@ export class CreateHeroViewComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, icon?: string) {
+  openSnackBar(message: string, icon: string): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 2000,
       data: {

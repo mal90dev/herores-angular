@@ -13,6 +13,8 @@ import { HeroesService } from '../../../features/heroes/shared/services/heroes.s
 import { Observable, of } from 'rxjs';
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
+import { CardComponent } from '../card/card.component';
 
 class MockHeroesService {
   
@@ -148,8 +150,13 @@ describe('GridComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should compile', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render app-card components for each hero', () => {
+    const cardElements = fixture.debugElement.queryAll(By.directive(CardComponent));
+    expect(cardElements.length).toEqual(component.heroes().length);
   });
 
   describe('handleRemove method', () => {

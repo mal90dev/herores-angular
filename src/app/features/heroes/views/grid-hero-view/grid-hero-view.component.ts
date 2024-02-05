@@ -1,4 +1,4 @@
-import { Component, ViewChild, inject, signal } from '@angular/core';
+import { Component, ViewChild, signal } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { HeroesService } from '../../shared/services/heroes.service';
@@ -36,9 +36,7 @@ export class GridHeroViewComponent {
   totalHeroes = signal<number>(0);
   showSpinner = signal(false);
 
-  heroService = inject(HeroesService);
-
-  // constructor(private readonly heroService: HeroesService) {}
+  constructor(private readonly heroService: HeroesService) {}
 
   ngOnInit(): void {
     this.getHeroes();

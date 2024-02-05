@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { SnackBarData } from 'src/app/features/heroes/shared/interfaces/snackBarData.interface';
+import { SnackBarData } from '../../interfaces/snackBarData.interface';
 
 @Component({
   standalone: true,
@@ -12,7 +12,7 @@ import { SnackBarData } from 'src/app/features/heroes/shared/interfaces/snackBar
     MatIconModule
   ]
 })
-export class SnackBarComponent {
+export class SnackBarComponent<T = any> {
   
-  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarData) { }
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarData<T>) { }
 }

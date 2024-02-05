@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { DialogDataGrid } from 'src/app/features/heroes/shared/interfaces/dialogDataGrid.interface';
+import { DialogDataGrid } from 'src/app/shared/interfaces/dialogDataGrid.interface';
 
 @Component({
   standalone: true,
@@ -15,14 +15,16 @@ import { DialogDataGrid } from 'src/app/features/heroes/shared/interfaces/dialog
 })
 export class DialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogDataGrid,
-    private readonly dialogRef: MatDialogRef<DialogComponent>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: DialogDataGrid,
+    private readonly dialogRef: MatDialogRef<DialogComponent>
+  ) {}
 
-    onCancel(): void {
-      this.dialogRef.close(false);
-    }
+  onCancel(): void {
+    this.dialogRef.close(false);
+  }
 
-    onAccept(): void {
-      this.dialogRef.close(true);
-    }
+  onAccept(): void {
+    this.dialogRef.close(true);
+  }
 }

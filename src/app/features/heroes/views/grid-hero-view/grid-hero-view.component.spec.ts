@@ -9,6 +9,7 @@ import { GridComponent } from 'src/app/shared/components/grid/grid.component';
 import { SearchComponent } from 'src/app/shared/components/search/search.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 
 class MockHeroesService {
   
@@ -127,6 +128,26 @@ describe('GridHeroViewComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the SearchComponent', () => {
+    const searchComponent = fixture.debugElement.query(By.directive(SearchComponent));
+    expect(searchComponent).toBeTruthy();
+  });
+
+  it('should render the "Add Hero" button', () => {
+    const addButton = fixture.debugElement.query(By.css('button[routerLink="/heroes/create"]'));
+    expect(addButton).toBeTruthy();
+  });
+
+  it('should render the GridComponent', () => {
+    const gridComponent = fixture.debugElement.query(By.directive(GridComponent));
+    expect(gridComponent).toBeTruthy();
+  });
+
+  it('should render the PaginatorComponent', () => {
+    const paginatorComponent = fixture.debugElement.query(By.directive(PaginatorComponent));
+    expect(paginatorComponent).toBeTruthy();
   });
 
   it('shoult call getHeroes and getStatusSpinner methods on ngOnInit', () => {

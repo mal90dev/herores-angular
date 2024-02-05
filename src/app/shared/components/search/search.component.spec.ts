@@ -29,6 +29,11 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render the search input with correct placeholder', () => {
+    const inputElement = fixture.nativeElement.querySelector('input.search__field-input');
+    expect(inputElement.placeholder).toBe('Search');
+  });
+
   it('shoult call initSearchForm and onSearchChange methods on ngOnInit', () => {
     spyOn(component, 'initSearchForm');
     spyOn(component, 'onSearchChange');

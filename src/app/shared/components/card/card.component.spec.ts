@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule, MatCardTitle } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Hero } from 'src/app/features/heroes/shared/interfaces/hero.interface';
+import { By } from '@angular/platform-browser';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -60,6 +61,17 @@ describe('CardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display hero name correctly', () => {
+    const heroNameElement = fixture.debugElement.query(By.directive(MatCardTitle)).nativeElement;
+    expect(heroNameElement.textContent.trim()).toContain(component.hero().name);
+  });
+
+  it('should display hero image correctly', () => {
+    const heroImageElement = fixture.debugElement.query(By.css('.card__img')).nativeElement;
+    expect(heroImageElement.getAttribute('src')).toBe(component.hero().image);
+    expect(heroImageElement.getAttribute('alt')).toBe('image');
   });
 
   describe('remove method', () => {

@@ -9,7 +9,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatPaginatorModule
-  ],
+  ]
 })
 export class PaginatorComponent {
 
@@ -18,12 +18,9 @@ export class PaginatorComponent {
   totalHeroes = input.required<number>();
   pageSize = signal(8);
   pageIndex = signal(0);
-  pageSizeOptions = [5, 10, 25];
 
   hidePageSize = true;
-  showPageSizeOptions = true;
   showFirstLastButtons = true;
-  disabled = false;
 
   handlePageEvent(e: PageEvent): void {
     this.pageSize.set(e.pageSize);
