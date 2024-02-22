@@ -1,32 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { render, screen } from '@testing-library/angular';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HeaderComponent,
-        SpinnerComponent
-      ]
-    }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-  });
-
-  it('should be created correctly', () => {
+  it('should render AppComponent', async () => {
+    const component = await render(AppComponent);
     expect(component).toBeTruthy();
   });
 
-  it('should contain a router-outlet', () => {
-    const routerOutlet = fixture.nativeElement.querySelector('router-outlet');
-    expect(routerOutlet).toBeTruthy();
+  it('should show app-header component', async () => {
+    await render(AppComponent);
+    const header = screen.getByRole('heading');
+    expect(header).toBeVisible();
+  });
+
+  it('should load router-outlet', async () => {
+    const { getByTestId } = await render(AppComponent);
+    const spinnerComponent = getByTestId('router-outlet');
+    expect(spinnerComponent).toBeTruthy();
+  });
+
+  it('should show app-spinner component', async () => {
+    const { getByTestId } = await render(AppComponent);
+    const spinnerComponent = getByTestId('app-spinner');
+    expect(spinnerComponent).toBeTruthy();
   });
 
 });

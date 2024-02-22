@@ -1,6 +1,8 @@
-<div class="spinner">
+<div class="spinner" data-testid="app-spinner">
   @if (loadingService.loadingSub | async) {
     <mat-spinner [color]="color"></mat-spinner>
   }
 </div>
-<div class="spinner__overlay" *ngIf="loadingService.loadingSub | async"></div>
+<div class="spinner__overlay" *ngIf="loadingService.loadingSub | async"></div> 
+
+<!-- todo lo del if -->

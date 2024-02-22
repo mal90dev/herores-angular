@@ -1,56 +1,81 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular';
 import { SpinnerComponent } from './spinner.component';
-import { LoadingService } from 'src/app/core/services/loading.service';
-import { By } from '@angular/platform-browser';
+import { BehaviorSubject } from 'rxjs';
+import { LoadingService } from '../../../core/services/loading.service';
 
-describe('SpinnerComponent', () => {
-  let component: SpinnerComponent;
-  let fixture: ComponentFixture<SpinnerComponent>;
-  let loadingService: LoadingService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      providers: [
-        LoadingService
-      ]
-    })
-    .compileComponents();
+describe('SpinnerComponent', () => { 
 
-    fixture = TestBed.createComponent(SpinnerComponent);
-    component = fixture.componentInstance;
-    loadingService = TestBed.inject(LoadingService);
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  it('should render component', async () => {    
+    const component = await render(SpinnerComponent);
     expect(component).toBeTruthy();
   });
 
-  it('should display mat-spinner when loading is true', () => {
-    loadingService.setLoading(true);
-    fixture.detectChanges();
-    const spinnerElement = fixture.debugElement.query(By.css('mat-spinner'));
-    expect(spinnerElement).toBeTruthy();
+  it('should not show spinner', async () => {
+    const loadingMock = {
+      loadingSub: new BehaviorSubject<boolean>(false)
+    };
+    await render(SpinnerComponent, {
+      componentProviders: [
+        {
+          provide: LoadingService,
+          useValue: loadingMock
+        },
+      ]
+    });
+    const spinner = screen.queryByRole('progressbar');
+    expect(spinner).toBeNull();
+    expect(spinner?.getElementsByClassName('spinner__overlay')).toBeFalsy();
   });
 
-  it('should display spinner overlay when loading is true', () => {
-    loadingService.setLoading(true);
-    fixture.detectChanges();
-    const overlayElement = fixture.debugElement.query(By.css('.spinner__overlay'));
+  it('should show spinner', async () => {
+    const loadingMock = {
+      loadingSub: new BehaviorSubject<boolean>(true)
+    };
+    await render(SpinnerComponent, {
+      componentProviders: [
+        {
+          provide: LoadingService,
+          useValue: loadingMock
+        },
+      ]
+    });
+    const spinner = screen.queryByRole('progressbar');
+    expect(spinner).toBeVisible();
+    expect(spinner?.getElementsByClassName('spinner__overlay')).toBeTruthy();
+  });
+
+  it('should not show overlay', async () => {
+    const loadingMock = {
+      loadingSub: new BehaviorSubject<boolean>(false)
+    };
+    const { container, fixture } = await render(SpinnerComponent, {
+      componentProviders: [
+        {
+          provide: LoadingService,
+          useValue: loadingMock
+        }
+      ]
+    });
+    const overlayElement = container.querySelector('.spinner__overlay');
+    expect(overlayElement).toBeFalsy();
+  });
+
+  it('should show overlay', async () => {
+    const loadingMock = {
+      loadingSub: new BehaviorSubject<boolean>(true)
+    };
+    const { container, fixture } = await render(SpinnerComponent, {
+      componentProviders: [
+        {
+          provide: LoadingService,
+          useValue: loadingMock
+        }
+      ]
+    });
+    const overlayElement = container.querySelector('.spinner__overlay');
     expect(overlayElement).toBeTruthy();
   });
 
-  it('should not display mat-spinner when loading is false', () => {
-    loadingService.setLoading(false);
-    fixture.detectChanges();
-    const spinnerElement = fixture.debugElement.query(By.css('mat-spinner'));
-    expect(spinnerElement).toBeNull();
-  });
-
-  it('should not display spinner overlay when loading is false', () => {
-    loadingService.setLoading(false);
-    fixture.detectChanges();
-    const overlayElement = fixture.debugElement.query(By.css('.spinner__overlay'));
-    expect(overlayElement).toBeNull();
-  });
 });
+
