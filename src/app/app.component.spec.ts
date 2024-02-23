@@ -1,15 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { screen } from '@testing-library/angular';
+
 describe('AppComponent', () => {
 
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-    }).compileComponents();
-  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
@@ -19,6 +15,15 @@ describe('AppComponent', () => {
 
   it('should render component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show app-header component', () => {
+    expect(screen.getByRole('heading')).toBeVisible();
+  });
+
+  it('should show app-spinner component', () => {
+    const spinner = screen.getByTestId('spinner');
+    expect(spinner).toBeVisible();
   });
 
 });

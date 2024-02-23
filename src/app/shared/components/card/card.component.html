@@ -1,11 +1,11 @@
-<mat-card class="card animate__animated animate__fadeIn">
+<mat-card class="card animate__animated animate__fadeIn" data-testid="mat-card">
   <mat-card-header>
     <mat-card-title>
       {{hero().name}}
       <button mat-icon-button class="card__button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menu="matMenu" xPosition="before">
+      <mat-menu (menuOpened)="isOpened()" #menu="matMenu" xPosition="before" data-testid="mat-menu">
         <button mat-menu-item (click)="details()">Details</button>
         <button mat-menu-item [routerLink]="['/heroes/edit/', hero().id]">Edit</button>
         <button mat-menu-item (click)="remove()">Remove</button>

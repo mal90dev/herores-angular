@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { DialogDataGrid } from 'src/app/shared/interfaces/dialogDataGrid.interface';
+import { DialogDataGrid } from '../../../shared/interfaces/dialogDataGrid.interface';
 
 @Component({
   standalone: true,

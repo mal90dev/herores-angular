@@ -1,5 +1,5 @@
 <div class="">
-  <mat-grid-list cols="4">
+  <mat-grid-list cols="4" role="list">
     @for (hero of heroes(); track hero.id) {
       <mat-grid-tile>
         <app-card [hero]="hero" (onRemove)="handleRemove($event)" (onDetails)="handleDetails($event)"/>

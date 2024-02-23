@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output, input } from 
 import { Hero } from '../../../features/heroes/shared/interfaces/hero.interface';
 import { HeroesService } from '../../../features/heroes/shared/services/heroes.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
 import { ModalDetailsComponent } from '../../../features/heroes/modal-details/modal-details.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CardComponent } from '../card/card.component';
