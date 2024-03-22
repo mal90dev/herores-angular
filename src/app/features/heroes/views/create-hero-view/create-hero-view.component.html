@@ -1,6 +1,6 @@
 <div class="create-form animate__animated animate__fadeIn">
   <button class="margin-t-2" mat-raised-button color="primary" routerLink="/">Back</button>
-  <form [formGroup]="createForm" class="form">
+  <form [formGroup]="createForm" class="form" role="form">
     <div class="row pb-3">
       <ng-template [ngIf]="controls.image.value" [ngIfElse]="avatar">
         <img [src]="controls.image.value | safe: 'url'" class="form__img rounded-circle float-start" alt="hero image">
